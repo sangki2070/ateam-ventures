@@ -115,5 +115,6 @@ export const SelectWrapper = styled.div`
 `;
 
 export const CardWrapper = styled.div`
+  display: inline-block;
   margin-top: 32px;
 `;

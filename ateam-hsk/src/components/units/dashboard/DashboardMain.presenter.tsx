@@ -61,9 +61,10 @@ const DashboardUI = (props: any) => {
           </FilterLeftWrapper>
           <Switch01 />
         </FilterWrapper>
+
         <CardWrapper>
           {props.renderData?.map((el: any) => (
-            <Card01 key={el.id} el={el} />
+            <Card01 el={el} key={el.id} />
           ))}
         </CardWrapper>
       </BodyWarpper>
