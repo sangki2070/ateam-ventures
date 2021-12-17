@@ -86,7 +86,7 @@ const CardFooter = styled.div`
   margin-top: 24px;
 `;
 
-const Card01 = () => {
+const Card01 = (props: any) => {
   return (
     <CardItemWrapper>
       <CardHeader>
@@ -103,19 +103,19 @@ const Card01 = () => {
       <CardBody>
         <BodyItemWrapper>
           <CardItemTitle>도면개수</CardItemTitle>
-          <CardItemContents>2개</CardItemContents>
+          <CardItemContents>{props.el?.count}개</CardItemContents>
         </BodyItemWrapper>
         <BodyItemWrapper>
           <CardItemTitle>총 수량</CardItemTitle>
-          <CardItemContents>100개</CardItemContents>
+          <CardItemContents>{props.el?.amount}개</CardItemContents>
         </BodyItemWrapper>
         <BodyItemWrapper>
           <CardItemTitle>가공방식</CardItemTitle>
-          <CardItemContents>밀링,선반</CardItemContents>
+          <CardItemContents>{props.el?.method.join()}</CardItemContents>
         </BodyItemWrapper>
         <BodyItemWrapper>
           <CardItemTitle>재료</CardItemTitle>
-          <CardItemContents>알루미늄</CardItemContents>
+          <CardItemContents>{props.el?.material.join()}</CardItemContents>
         </BodyItemWrapper>
       </CardBody>
       <CardFooter>

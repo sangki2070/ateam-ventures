@@ -27,7 +27,7 @@ import Select02 from "../../commons/select/02/Select02";
 import Switch01 from "../../commons/switch/01/Switch01";
 import Card01 from "../../commons/card/01/Card01";
 
-const DashboardUI = () => {
+const DashboardUI = (props: any) => {
   return (
     <>
       <HeadWrapper>
@@ -62,7 +62,9 @@ const DashboardUI = () => {
           <Switch01 />
         </FilterWrapper>
         <CardWrapper>
-          <Card01 />
+          {props.renderData?.map((el: any) => (
+            <Card01 key={el.id} el={el} />
+          ))}
         </CardWrapper>
       </BodyWarpper>
     </>
