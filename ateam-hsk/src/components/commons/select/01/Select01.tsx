@@ -9,18 +9,34 @@ import Checkbox from "@mui/material/Checkbox";
 
 const names = ["밀링", "선반"];
 
-const Select01 = () => {
-  const [personName, setPersonName] = React.useState([]);
+const Select01 = (props: any) => {
+  // const [method, setMethod] = React.useState([]);
 
   const handleChange = (event: any) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
+    console.log("332", JSON.stringify(value.join()));
+    props.setMethod(
       // On autofill we get a the stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+    value.sort();
+
+    const data = props.renderData?.filter(
+      (el: any) =>
+        JSON.stringify(el?.method) === JSON.stringify(value) ||
+        el?.method.includes(value.join())
+    );
+
+    props.setMethodFilter(data);
+    console.log("===", value);
   };
+
+  console.log("23", props.method);
+  console.log(props.method[0]);
+  console.log(props.method[1]);
+  console.log("77", props.methodFilter);
 
   return (
     <div>
@@ -30,7 +46,7 @@ const Select01 = () => {
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
           multiple
-          value={personName}
+          value={props.method}
           onChange={handleChange}
           input={<OutlinedInput label="가공방식" />}
           renderValue={(selected) => "가공방식" + "(" + selected.length + ")"}

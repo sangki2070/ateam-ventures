@@ -9,18 +9,29 @@ import Checkbox from "@mui/material/Checkbox";
 
 const names = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
 
-const Select02 = () => {
-  const [personName, setPersonName] = React.useState([]);
+const Select02 = (props: any) => {
+  // const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event: any) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
+    props.setMaterial(
       // On autofill we get a the stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+    value.sort();
+
+    const data = props.renderData?.filter(
+      (el: any) =>
+        JSON.stringify(el?.material) === JSON.stringify(value) ||
+        el?.material.includes(value.join())
+    );
+
+    props.setMaterialFilter(data);
   };
+
+  console.log("90", props.materialFilter);
 
   return (
     <div>
@@ -29,7 +40,7 @@ const Select02 = () => {
         <Select
           id="demo-multiple-checkbox"
           multiple
-          value={personName}
+          value={props.material}
           onChange={handleChange}
           input={<OutlinedInput label="재료" />}
           renderValue={(selected) => "재료" + "(" + selected.length + ")"}

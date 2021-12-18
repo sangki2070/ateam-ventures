@@ -98,6 +98,7 @@ export const RefreshWrapper = styled.div`
   justify-content: space-between;
   margin-left: 20px;
   width: 80px;
+  cursor: pointer;
 `;
 
 export const RefreshImage = styled.img`
@@ -124,4 +125,7 @@ export const CardWrapper = styled.div`
   justify-content: space-between;
   justify-items: space-between;
   margin-top: 32px;
+  @media (max-width: 360px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;

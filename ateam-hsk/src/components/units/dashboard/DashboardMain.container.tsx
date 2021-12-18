@@ -7,6 +7,10 @@ const DashboardContainer = () => {
 
   const [renderData, setRenderData] = useState();
   const [toggle, setToggle] = useState(false);
+  const [method, setMethod] = useState([]);
+  const [methodFilter, setMethodFilter] = useState();
+  const [material, setMaterial] = useState([]);
+  const [materialFilter, setMaterialFilter] = useState();
 
   useEffect(() => {
     try {
@@ -25,11 +29,24 @@ const DashboardContainer = () => {
     setToggle((prev) => !prev);
   };
 
+  const refreshBtn = () => {
+    window.location.reload();
+  };
+
   return (
     <DashboardUI
       renderData={renderData}
       toggle={toggle}
       switchToggle={switchToggle}
+      method={method}
+      setMethod={setMethod}
+      setMethodFilter={setMethodFilter}
+      methodFilter={methodFilter}
+      materialFilter={materialFilter}
+      setMaterialFilter={setMaterialFilter}
+      setMaterial={setMaterial}
+      material={material}
+      refreshBtn={refreshBtn}
     />
   );
 };

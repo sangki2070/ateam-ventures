@@ -51,10 +51,22 @@ const DashboardUI = (props: any) => {
         <FilterWrapper>
           <FilterLeftWrapper>
             <SelectWrapper>
-              <Select01 />
-              <Select02 />
+              <Select01
+                method={props.method}
+                setMethod={props.setMethod}
+                renderData={props.renderData}
+                setMethodFilter={props.setMethodFilter}
+                methodFilter={props.methodFilter}
+              />
+              <Select02
+                materialFilter={props.materialFilter}
+                setMaterialFilter={props.setMaterialFilter}
+                renderData={props.renderData}
+                material={props.material}
+                setMaterial={props.setMaterial}
+              />
             </SelectWrapper>
-            <RefreshWrapper>
+            <RefreshWrapper onClick={props.refreshBtn}>
               <RefreshImage src="/images/refresh.png" />
               <RefreshText>필터링 리셋</RefreshText>
             </RefreshWrapper>
@@ -67,9 +79,11 @@ const DashboardUI = (props: any) => {
             ? props.renderData
                 ?.filter((el: any) => el.status === "상담중")
                 .map((el: any) => <Card01 el={el} key={el.id} />)
-            : props.renderData?.map((el: any) => (
-                <Card01 el={el} key={el.id} />
-              ))}
+            : (
+                props.materialFilter ||
+                props.methodFilter ||
+                props.renderData
+              )?.map((el: any) => <Card01 el={el} key={el.id} />)}
         </CardWrapper>
       </BodyWarpper>
     </>
