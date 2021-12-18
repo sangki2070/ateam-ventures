@@ -8,6 +8,10 @@ const CardItemWrapper = styled.div`
   width: 366px;
   height: 356px;
   border: 1px solid #e5e5e5;
+  cursor: pointer;
+  :hover {
+    border: 1px solid #2196f3;
+  }
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -92,13 +96,17 @@ const Card01 = (props: any) => {
     <CardItemWrapper>
       <CardHeader>
         <CardTitleWrapper>
-          <CardTitle>자동차 시제품 제작</CardTitle>
-          <CardStatus>
-            <StatusText>상담중</StatusText>
-          </CardStatus>
+          <CardTitle>{props.el?.title}</CardTitle>
+          {props.el?.status === "상담중" ? (
+            <CardStatus>
+              <StatusText>상담중</StatusText>
+            </CardStatus>
+          ) : (
+            <></>
+          )}
         </CardTitleWrapper>
-        <CompanyName>A 고객사</CompanyName>
-        <DeadLine>2020.12.14까지 납기</DeadLine>
+        <CompanyName>{props.el?.client}</CompanyName>
+        <DeadLine>{props.el?.due}까지 납기</DeadLine>
       </CardHeader>
       <Line />
       <CardBody>

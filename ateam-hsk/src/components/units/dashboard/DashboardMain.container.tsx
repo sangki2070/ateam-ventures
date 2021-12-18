@@ -6,17 +6,7 @@ const DashboardContainer = () => {
   const request = "http://localhost:4000/requests";
 
   const [renderData, setRenderData] = useState();
-  // interface Iprops {
-  //   id: number;
-  //   title: string;
-  //   client: string;
-  //   due: string;
-  //   count: number;
-  //   amount: number;
-  //   method: string[];
-  //   material: string[];
-  //   status: string;
-  // }
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     try {
@@ -31,9 +21,17 @@ const DashboardContainer = () => {
     }
   }, []);
 
-  console.log(renderData);
+  const switchToggle = () => {
+    setToggle((prev) => !prev);
+  };
 
-  return <DashboardUI renderData={renderData} />;
+  return (
+    <DashboardUI
+      renderData={renderData}
+      toggle={toggle}
+      switchToggle={switchToggle}
+    />
+  );
 };
 
 export default DashboardContainer;

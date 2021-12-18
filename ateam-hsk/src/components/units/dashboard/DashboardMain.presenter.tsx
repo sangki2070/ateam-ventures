@@ -59,13 +59,17 @@ const DashboardUI = (props: any) => {
               <RefreshText>필터링 리셋</RefreshText>
             </RefreshWrapper>
           </FilterLeftWrapper>
-          <Switch01 />
+          <Switch01 switchToggle={props.switchToggle} />
         </FilterWrapper>
 
         <CardWrapper>
-          {props.renderData?.map((el: any) => (
-            <Card01 el={el} key={el.id} />
-          ))}
+          {props.toggle
+            ? props.renderData
+                ?.filter((el: any) => el.status === "상담중")
+                .map((el: any) => <Card01 el={el} key={el.id} />)
+            : props.renderData?.map((el: any) => (
+                <Card01 el={el} key={el.id} />
+              ))}
         </CardWrapper>
       </BodyWarpper>
     </>
