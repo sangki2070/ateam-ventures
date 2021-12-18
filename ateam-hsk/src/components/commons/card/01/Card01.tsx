@@ -11,6 +11,7 @@ const CardItemWrapper = styled.div`
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
+  margin-bottom: 16px;
 `;
 
 const CardHeader = styled.div`

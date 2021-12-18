@@ -60,6 +60,8 @@ export const CompanInfo = styled.div`
 `;
 
 export const BodyWarpper = styled.div`
+  width: 1250px;
+  margin: auto;
   padding-left: 9%;
   padding-right: 9%;
 `;
@@ -115,6 +117,11 @@ export const SelectWrapper = styled.div`
 `;
 
 export const CardWrapper = styled.div`
-  display: inline-block;
+  display: grid;
+  /* width: 100%; */
+  /* grid-template-rows: repeat(3, 1fr); */
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  justify-items: space-between;
   margin-top: 32px;
 `;
