@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import DashboardUI from "./DashboardMain.presenter";
 import axios from "axios";
+import { IRequest } from "./DashboardMain.type";
 
 const DashboardContainer = () => {
   const request = "http://localhost:4000/requests";
 
-  const [renderData, setRenderData] = useState();
-  const [toggle, setToggle] = useState(false);
-  const [method, setMethod] = useState([]);
-  const [methodFilter, setMethodFilter] = useState();
-  const [material, setMaterial] = useState([]);
-  const [materialFilter, setMaterialFilter] = useState();
-  const [isOpen, setIsOpen] = useState(false);
+  const [renderData, setRenderData] = useState<IRequest | null>();
+  const [toggle, setToggle] = useState<boolean>(false);
+  const [method, setMethod] = useState<string[]>([]);
+  const [methodFilter, setMethodFilter] = useState<IRequest | null>();
+  const [material, setMaterial] = useState<string[]>([]);
+  const [materialFilter, setMaterialFilter] = useState<IRequest | null>();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     try {
@@ -27,7 +28,7 @@ const DashboardContainer = () => {
   }, []);
 
   const switchToggle = () => {
-    setToggle((prev) => !prev);
+    setToggle((prev: boolean) => !prev);
   };
 
   const refreshBtn = () => {
@@ -35,7 +36,13 @@ const DashboardContainer = () => {
   };
 
   const onClickMenu = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen((prev: boolean) => !prev);
+    console.log(123);
+    console.log(isOpen);
+  };
+
+  const onClickReset = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -54,6 +61,7 @@ const DashboardContainer = () => {
       refreshBtn={refreshBtn}
       onClickMenu={onClickMenu}
       isOpen={isOpen}
+      onClickReset={onClickReset}
     />
   );
 };

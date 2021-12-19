@@ -10,17 +10,12 @@ import Checkbox from "@mui/material/Checkbox";
 const names = ["밀링", "선반"];
 
 const Select01 = (props: any) => {
-  // const [method, setMethod] = React.useState([]);
-
   const handleChange = (event: any) => {
     const {
       target: { value },
     } = event;
     console.log("332", JSON.stringify(value.join()));
-    props.setMethod(
-      // On autofill we get a the stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+    props.setMethod(typeof value === "string" ? value.split(",") : value);
     value.sort();
 
     const data = props.renderData?.filter(
@@ -30,13 +25,7 @@ const Select01 = (props: any) => {
     );
 
     props.setMethodFilter(data);
-    console.log("===", value);
   };
-
-  console.log("23", props.method);
-  console.log(props.method[0]);
-  console.log(props.method[1]);
-  console.log("77", props.methodFilter);
 
   return (
     <div>

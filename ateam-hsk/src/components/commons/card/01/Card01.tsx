@@ -109,26 +109,28 @@ const Card01 = (props: any) => {
             <></>
           )}
         </CardTitleWrapper>
-        <CompanyName>{props.el?.client}</CompanyName>
-        <DeadLine>{props.el?.due}까지 납기</DeadLine>
+        <CompanyName>{String(props.el?.client)}</CompanyName>
+        <DeadLine>{String(props.el?.due)}까지 납기</DeadLine>
       </CardHeader>
       <Line />
       <CardBody>
         <BodyItemWrapper>
           <CardItemTitle>도면개수</CardItemTitle>
-          <CardItemContents>{props.el?.count}개</CardItemContents>
+          <CardItemContents>{Number(props.el?.count)}개</CardItemContents>
         </BodyItemWrapper>
         <BodyItemWrapper>
           <CardItemTitle>총 수량</CardItemTitle>
-          <CardItemContents>{props.el?.amount}개</CardItemContents>
+          <CardItemContents>{Number(props.el?.amount)}개</CardItemContents>
         </BodyItemWrapper>
         <BodyItemWrapper>
           <CardItemTitle>가공방식</CardItemTitle>
-          <CardItemContents>{props.el?.method.join()}</CardItemContents>
+          <CardItemContents>{String(props.el?.method.join())}</CardItemContents>
         </BodyItemWrapper>
         <BodyItemWrapper>
           <CardItemTitle>재료</CardItemTitle>
-          <CardItemContents>{props.el?.material.join()}</CardItemContents>
+          <CardItemContents>
+            {String(props.el?.material.join())}
+          </CardItemContents>
         </BodyItemWrapper>
       </CardBody>
       <CardFooter>

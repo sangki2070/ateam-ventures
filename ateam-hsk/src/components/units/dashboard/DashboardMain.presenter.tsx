@@ -20,19 +20,25 @@ import {
   SelectWrapper,
   FilterLeftWrapper,
   CardWrapper,
+  CategoryBtn,
 } from "./DashboardMain.styles";
 
 import Select01 from "../../commons/select/01/Select01";
 import Select02 from "../../commons/select/02/Select02";
 import Switch01 from "../../commons/switch/01/Switch01";
 import Card01 from "../../commons/card/01/Card01";
+// import Sidebar01 from "../../commons/sidebar/01/Sidebar01";
+
+import { IRequest } from "./DashboardMain.type";
 
 const DashboardUI = (props: any) => {
   return (
     <>
       <HeadWrapper>
         <HeadLeft>
+          <CategoryBtn onClick={props.onClickMenu} />
           <Logo src="/images/capa.png" />
+          {/* <Sidebar01 isOpen={props.isOpen} /> */}
         </HeadLeft>
         <HeadRight>
           <CompanInfo>
@@ -43,7 +49,7 @@ const DashboardUI = (props: any) => {
           <Logout>로그아웃</Logout>
         </HeadRight>
       </HeadWrapper>
-      <BodyWarpper>
+      <BodyWarpper onClick={props.onClickReset}>
         <BodyTitleWrapper>
           <Title>들어온 요청</Title>
           <TitleDetail>파트너님에게 딱맞는 요청서를 찾아보세요</TitleDetail>
@@ -77,13 +83,13 @@ const DashboardUI = (props: any) => {
         <CardWrapper>
           {props.toggle
             ? props.renderData
-                ?.filter((el: any) => el.status === "상담중")
-                .map((el: any) => <Card01 el={el} key={el.id} />)
+                ?.filter((el: IRequest) => el.status === "상담중")
+                .map((el: IRequest) => <Card01 el={el} key={String(el.id)} />)
             : (
                 props.materialFilter ||
                 props.methodFilter ||
                 props.renderData
-              )?.map((el: any) => <Card01 el={el} key={el.id} />)}
+              )?.map((el: IRequest) => <Card01 el={el} key={String(el.id)} />)}
         </CardWrapper>
       </BodyWarpper>
     </>

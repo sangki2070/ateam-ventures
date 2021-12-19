@@ -10,16 +10,11 @@ import Checkbox from "@mui/material/Checkbox";
 const names = ["알루미늄", "탄소강", "구리", "스테인리스강", "강철"];
 
 const Select02 = (props: any) => {
-  // const [personName, setPersonName] = React.useState([]);
-
   const handleChange = (event: any) => {
     const {
       target: { value },
     } = event;
-    props.setMaterial(
-      // On autofill we get a the stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+    props.setMaterial(typeof value === "string" ? value.split(",") : value);
     value.sort();
 
     const data = props.renderData?.filter(

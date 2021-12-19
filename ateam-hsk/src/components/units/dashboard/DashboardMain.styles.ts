@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export const HeadWrapper = styled.div`
   width: 100%;
@@ -16,7 +17,20 @@ export const HeadLeft = styled.div`
   display: flex;
   margin-left: 40px;
   @media (max-width: 360px) {
+    align-items: center;
     margin-left: 20px;
+  }
+`;
+
+export const CategoryBtn = styled(MenuIcon)`
+  position: fixed;
+  left: -100px;
+  @media (max-width: 360px) {
+    position: relative;
+    left: 0px;
+    color: white;
+    width: 20px;
+    height: 20px;
   }
 `;
 
