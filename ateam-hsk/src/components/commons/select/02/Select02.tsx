@@ -7,7 +7,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 
-const names = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
+const names = ["알루미늄", "탄소강", "구리", "스테인리스강", "강철"];
 
 const Select02 = (props: any) => {
   // const [personName, setPersonName] = React.useState([]);

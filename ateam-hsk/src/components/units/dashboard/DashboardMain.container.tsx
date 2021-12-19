@@ -11,6 +11,7 @@ const DashboardContainer = () => {
   const [methodFilter, setMethodFilter] = useState();
   const [material, setMaterial] = useState([]);
   const [materialFilter, setMaterialFilter] = useState();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -33,6 +34,10 @@ const DashboardContainer = () => {
     window.location.reload();
   };
 
+  const onClickMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <DashboardUI
       renderData={renderData}
@@ -47,6 +52,8 @@ const DashboardContainer = () => {
       setMaterial={setMaterial}
       material={material}
       refreshBtn={refreshBtn}
+      onClickMenu={onClickMenu}
+      isOpen={isOpen}
     />
   );
 };

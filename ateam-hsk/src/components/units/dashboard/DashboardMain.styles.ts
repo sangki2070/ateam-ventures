@@ -7,11 +7,17 @@ export const HeadWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* @media (max-width: 360px) {
+    width: 360px;
+  } */
 `;
 
 export const HeadLeft = styled.div`
   display: flex;
   margin-left: 40px;
+  @media (max-width: 360px) {
+    margin-left: 20px;
+  }
 `;
 
 export const HeadRight = styled.div`
@@ -21,11 +27,19 @@ export const HeadRight = styled.div`
   width: 210px;
   height: 20px;
   margin-right: 40px;
+  @media (max-width: 360px) {
+    display: none;
+  }
 `;
 
 export const Logo = styled.img`
   width: 150px;
   height: 20px;
+  @media (max-width: 360px) {
+    width: 92px;
+    height: 12px;
+    margin-left: 16px;
+  }
 `;
 
 export const CompanyImage = styled.img`
@@ -64,6 +78,11 @@ export const BodyWarpper = styled.div`
   margin: auto;
   padding-left: 9%;
   padding-right: 9%;
+  @media (max-width: 360px) {
+    width: 360px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 export const BodyTitleWrapper = styled.div`
@@ -86,6 +105,9 @@ export const FilterWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 80px;
+  @media (max-width: 360px) {
+    display: block;
+  }
 `;
 
 export const FilterLeftWrapper = styled.div`
@@ -99,6 +121,9 @@ export const RefreshWrapper = styled.div`
   margin-left: 20px;
   width: 80px;
   cursor: pointer;
+  @media (max-width: 360px) {
+    display: none;
+  }
 `;
 
 export const RefreshImage = styled.img`

@@ -16,6 +16,10 @@ const CardItemWrapper = styled.div`
   padding-left: 16px;
   padding-right: 16px;
   margin-bottom: 16px;
+  @media (max-width: 360px) {
+    width: 300px;
+    heithg: 344px;
+  }
 `;
 
 const CardHeader = styled.div`
