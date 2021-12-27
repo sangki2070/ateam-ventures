@@ -38,7 +38,6 @@ const DashboardUI = (props: any) => {
         <HeadLeft>
           <CategoryBtn onClick={props.onClickMenu} />
           <Logo src="/images/capa.png" />
-          {/* <Sidebar01 isOpen={props.isOpen} /> */}
         </HeadLeft>
         <HeadRight>
           <CompanInfo>
